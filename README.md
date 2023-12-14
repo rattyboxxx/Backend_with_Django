@@ -1,2 +1,2 @@
-# backend_with_django
-Learning backend using Django
+# Backend_with_Django
+Learning backend using Django. F*ck Java
