@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ratty's Blog</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #8e9eab, #eef2f3);
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(to right, #4568dc, #b06ab3);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 2em;
+        }
+
+        nav {
+            background: linear-gradient(to right, #b06ab3, #4568dc);
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s ease-in-out;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: bold;
+            color: rgb(149, 206, 206);
+        }
+
+        nav a:hover {
+            color: #f39c12;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .blog-post {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .blog-post:hover {
+            transform: scale(1.02);
+        }
+
+        .blog-post h2 {
+            color: #333;
+        }
+
+        .meta {
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .read-more {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #3498db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .read-more:hover {
+            background-color: #2980b9;
+        }
+
+        footer {
+            background: linear-gradient(to right, #b06ab3, #4568dc);
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: static;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer.final {
+            position: fixed;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 style="font-family: 'Courier New', Courier, monospace;">Ratty's Blog</h1>
+    </header>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <div class="container">
+
+        {% for post in posts reversed %}
+        <div class="blog-post">
+            <h2>{{post.title}}</h2>
+            <p class="meta">Posted on {{post.created_at}}</p>
+            <p>{{post.body|truncatewords:20}}</p>
+            <a href="/post/{{post.id}}" class="read-more">Read more</a>
+        </div>
+        {% endfor %}
+        
+    </div>
+
+    <footer>
+        <p>&copy; 2023</p>
+    </footer>
+
+    <footer class="final">
+        <p>&copy; 2023 Ratty's Blog. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
